@@ -1,23 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {PokemonCard} from './components/PokemonCard';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <PokemonCard />
+        <PokemonCard />
+        <PokemonCard />
+      
+
+      {/* <div className="pokemonDos">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="Pokemon dos"/>
+      <p>
+        Ivysaur
+      </p>
+      </div>
+
+      <div className="pokemonTres">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="Pokemon tres"/>
+      <p>
+        Venusaur
+      </p>
+      </div> */}
+
       </header>
     </div>
   );
