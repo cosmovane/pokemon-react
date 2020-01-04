@@ -1,34 +1,38 @@
 import React from 'react';
 import './App.css';
 import {PokemonCard} from './components/PokemonCard';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+class App extends React.Component{
 
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
-      
+  state = { 
+    pokemons: [] 
+  }
 
-      {/* <div className="pokemonDos">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="Pokemon dos"/>
-      <p>
-        Ivysaur
-      </p>
+  async componentDidMount (){
+    const response = await axios('https://pokeapi.co/api/v2/pokemon/?limit=50');
+
+    this.setState({
+      pokemons: response.data.results
+    })
+  }
+
+  render(){
+    
+    const { pokemons } = this.state
+    
+    return (
+      <div className="App">
+        <header className="App-header">
+          {
+            pokemons.map(pokemon => <PokemonCard id={pokemon.name}/>)
+          }
+        </header>
       </div>
+    )
 
-      <div className="pokemonTres">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="Pokemon tres"/>
-      <p>
-        Venusaur
-      </p>
-      </div> */}
+  }
 
-      </header>
-    </div>
-  );
 }
 
 export default App;
